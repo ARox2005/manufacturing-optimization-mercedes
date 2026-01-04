@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Redefined - Mercedes-Benz Pitch Deck</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FFFDE7;
+            color: #222222;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .slide.lead {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #4a90d9, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #4a90d9;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #e94560;
+            margin: 20px 0 10px 0;
+        }
+
+        p,
+        li {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        th,
+        td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #FFF9C4;
+            color: #1565C0;
+            font-size: 1.1rem;
+        }
+
+        td {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .diagram-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(74, 144, 217, 0.5);
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .highlight {
+            color: #4a90d9;
+            font-weight: bold;
+        }
+
+        .roi-box {
+            background: linear-gradient(135deg, #FFF9C4, #FFECB3);
+            border: 2px solid #F9A825;
+            border-radius: 12px;
+            padding: 20px 40px;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        .roi-box h3 {
+            color: #E65100;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .phases {
+            display: grid;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .phase {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 4px solid #F9A825;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .phase h3 {
+            color: #E65100;
+            margin-bottom: 5px;
+        }
+
+        .phase p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .email {
+            color: #4a90d9;
+            font-size: 1.3rem;
+            margin-top: 20px;
+        }
+
+        .quote-author {
+            color: #777;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide lead">
+        <h1>Yellowsense Technologies</h1>
+        <h2>Hybrid Distributed Intelligence for Mercedes-Benz Manufacturing Excellence</h2>
+        <br>
+        <p class="subtitle"><em>Elevating Production Quality Through AI-Powered Insights</em></p>
+        <div class="slide-number">1</div>
+    </div>
+
+    <!-- Slide 2: Executive Summary -->
+    <div class="slide">
+        <h1>Executive Summary</h1>
+        <br>
+        <h3>The Why</h3>
+        <p>Modern automotive manufacturing generates vast, siloed data streams—turning them into <em>actionable
+                intelligence</em> is the key to competitive advantage.</p>
+        <br>
+        <h3>The What</h3>
+        <p>We propose a <strong class="highlight">Hybrid Distributed Intelligence</strong> system: real-time edge AI at
+            every production stage, unified by a central optimization hub that sees your entire factory floor.</p>
+        <div class="slide-number">2</div>
+    </div>
+
+    <!-- Slide 3: Current Challenges -->
+    <div class="slide">
+        <h1>Current Challenges</h1>
+        <br>
+        <h3>The Reality of Modern Auto Manufacturing</h3>
+        <ul>
+            <li>🔒 <strong>Siloed Data Systems</strong> — Each stage operates in isolation, blind to upstream/downstream
+                context</li>
+            <li>⏱️ <strong>Reactive Quality Control</strong> — Defects discovered late in the line compound
+                exponentially</li>
+            <li>📊 <strong>Fragmented Analytics</strong> — No single source of truth for holistic process optimization
+            </li>
+            <li>🔧 <strong>Unplanned Downtime</strong> — Equipment failures lack predictive warning signals</li>
+        </ul>
+        <blockquote>"The cost of a defect increases 10x at each subsequent stage of production."</blockquote>
+        <div class="slide-number">3</div>
+    </div>
+
+    <!-- Slide 4: The Vision -->
+    <div class="slide lead">
+        <h1>The Vision</h1>
+        <h2>Distributed Speed. Centralized Wisdom.</h2>
+        <br>
+        <p>Real-time intelligence at every station.<br>Holistic optimization across your entire line.</p>
+        <div class="slide-number">4</div>
+    </div>
+
+    <!-- Slide 5: The Architecture -->
+    <div class="slide">
+        <h1>The Architecture</h1>
+        <div class="diagram-container">
+            <pre class="mermaid">
+flowchart TB
+    subgraph EDGE["🔧 Edge Intelligence Layer"]
+        direction LR
+        S1["⚙️ Stamping<br/>AI Module"]
+        S2["🔩 Body Shop<br/>AI Module"]
+        S3["🎨 Paint Shop<br/>AI Module"]
+        S4["🔧 Assembly<br/>AI Module"]
+        S5["✅ Quality Check<br/>AI Module"]
+    end
+
+    subgraph CENTRAL["🧠 Central Intelligence Hub"]
+        direction TB
+        AGG["Data Aggregation<br/>& Correlation Engine"]
+        PRED["Predictive<br/>Maintenance AI"]
+        OPT["Process<br/>Optimization Engine"]
+        DASH["Executive<br/>Dashboard"]
+    end
+
+    S1 -->|Real-time Telemetry| AGG
+    S2 -->|Real-time Telemetry| AGG
+    S3 -->|Real-time Telemetry| AGG
+    S4 -->|Real-time Telemetry| AGG
+    S5 -->|Real-time Telemetry| AGG
+
+    AGG --> PRED
+    AGG --> OPT
+    PRED --> DASH
+    OPT --> DASH
+
+    style EDGE fill:#FFF9C4,stroke:#F9A825,stroke-width:2px
+    style CENTRAL fill:#FFECB3,stroke:#E65100,stroke-width:2px
+            </pre>
+        </div>
+        <div class="slide-number">5</div>
+    </div>
+
+    <!-- Slide 6: Deep Dive Edge -->
+    <div class="slide">
+        <h1>Deep Dive: Edge Intelligence</h1>
+        <br>
+        <h3>Standalone AI at Every Production Stage</h3>
+        <table>
+            <tr>
+                <th>Capability</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Real-Time Anomaly Detection</strong></td>
+                <td>Sub-second identification of deviations using computer vision and sensor fusion</td>
+            </tr>
+            <tr>
+                <td><strong>Immediate Alerting</strong></td>
+                <td>On-the-spot notifications to line operators—no cloud latency</td>
+            </tr>
+            <tr>
+                <td><strong>Quality Analysis</strong></td>
+                <td>Per-unit quality scoring with defect classification</td>
+            </tr>
+            <tr>
+                <td><strong>Local Decision Making</strong></td>
+                <td>Autonomous micro-adjustments within safe parameters</td>
+            </tr>
+        </table>
+        <blockquote>🎯 <strong>Key Benefit:</strong> Issues are caught <em>at the source</em>, not downstream.
+        </blockquote>
+        <div class="slide-number">6</div>
+    </div>
+
+    <!-- Slide 7: Deep Dive Central -->
+    <div class="slide">
+        <h1>Deep Dive: Central Wisdom</h1>
+        <br>
+        <h3>The Holistic Intelligence Hub</h3>
+        <div class="diagram-container">
+            <pre class="mermaid">
+flowchart LR
+    subgraph INPUT["Incoming Streams"]
+        D1["Edge Telemetry"]
+        D2["Historical Data"]
+        D3["Supply Chain Feed"]
+    end
+
+    subgraph CORE["Central AI Core"]
+        C1["Cross-Stage<br/>Correlation"]
+        C2["Predictive<br/>Maintenance"]
+        C3["Process<br/>Optimization"]
+    end
+
+    subgraph OUTPUT["Actionable Insights"]
+        O1["⚠️ Early Warnings"]
+        O2["📈 Efficiency Gains"]
+        O3["🔮 Failure Predictions"]
+    end
+
+    D1 --> C1
+    D2 --> C2
+    D3 --> C3
+    C1 --> O1
+    C2 --> O3
+    C3 --> O2
+
+    style CORE fill:#FFF9C4,stroke:#F9A825,stroke-width:2px
+            </pre>
+        </div>
+        <p><strong>Discovers patterns invisible to isolated systems—correlating upstream events to downstream
+                effects.</strong></p>
+        <div class="slide-number">7</div>
+    </div>
+
+    <!-- Slide 8: Business Value -->
+    <div class="slide">
+        <h1>Business Value & ROI</h1>
+        <br>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Expected Impact</th>
+            </tr>
+            <tr>
+                <td><strong>Unplanned Downtime</strong></td>
+                <td>↓ 35-45% reduction through predictive maintenance</td>
+            </tr>
+            <tr>
+                <td><strong>First-Pass Yield</strong></td>
+                <td>↑ 8-12% improvement via real-time quality intervention</td>
+            </tr>
+            <tr>
+                <td><strong>Defect Escape Rate</strong></td>
+                <td>↓ 60% fewer defects reaching final assembly</td>
+            </tr>
+            <tr>
+                <td><strong>Mean Time to Resolution</strong></td>
+                <td>↓ 50% faster root cause identification</td>
+            </tr>
+        </table>
+        <div class="roi-box">
+            <h3>💰 Projected Annual Savings: €15-25M per plant</h3>
+        </div>
+        <blockquote><em>Precision isn't just quality—it's profitability.</em></blockquote>
+        <div class="slide-number">8</div>
+    </div>
+
+    <!-- Slide 9: The Road Ahead -->
+    <div class="slide lead">
+        <h1>The Road Ahead</h1>
+        <br>
+        <div class="phases" style="text-align: left; max-width: 800px;">
+            <div class="phase">
+                <h3>Phase 1: Pilot Integration (6 months)</h3>
+                <p>Deploy edge modules at critical stations in one production line</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 2: Full Line Rollout (12 months)</h3>
+                <p>Scale across all stages with central hub integration</p>
+            </div>
+            <div class="phase">
+                <h3>Phase 3: Multi-Plant Intelligence (24 months)</h3>
+                <p>Cross-facility optimization and knowledge transfer</p>
+            </div>
+        </div>
+        <div class="slide-number">9</div>
+    </div>
+
+    <!-- Slide 10: Partner With Us -->
+    <div class="slide lead">
+        <h1>Partner With Us</h1>
+        <br>
+        <h2>Let's Build the Future of Manufacturing Excellence—Together.</h2>
+        <br><br>
+        <p><em>"The best or nothing."</em></p>
+        <!-- <p class="quote-author">— Gottlieb Daimler</p> -->
+        <br>
+        <p class="email">📧 tech@yellowsense.in</p>
+        <div class="slide-number">10</div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#FFF9C4',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#F9A825',
+                lineColor: '#E65100',
+                secondaryColor: '#FFECB3',
+                tertiaryColor: '#FFF8E1',
+                background: '#FFFDE7',
+                mainBkg: '#FFF9C4',
+                nodeBorder: '#F9A825',
+                clusterBkg: '#FFF8E1',
+                clusterBorder: '#F9A825',
+                defaultLinkColor: '#E65100',
+                titleColor: '#333333',
+                edgeLabelBackground: '#FFFDE7',
+                nodeTextColor: '#333333'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+
+</html>

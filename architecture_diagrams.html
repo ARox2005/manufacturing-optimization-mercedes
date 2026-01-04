@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-Benz AI Architecture Diagrams</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #FFFDE7;
+            color: #333333;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #4a90d9, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            color: #E65100;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #F9A825;
+        }
+
+        .diagram-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(249, 168, 37, 0.5);
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
+        .toc {
+            background: rgba(255, 249, 196, 0.5);
+            border-radius: 16px;
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(249, 168, 37, 0.5);
+        }
+
+        .toc h3 {
+            color: #E65100;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            columns: 2;
+        }
+
+        .toc li {
+            padding: 5px 0;
+        }
+
+        .toc a {
+            color: #1565C0;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: #E65100;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #F9A825, transparent);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏭 Hybrid Distributed Intelligence</h1>
+    <p style="text-align: center; color: #555; margin-bottom: 30px;">Mercedes-Benz Production Optimization -
+        Architecture Documentation</p>
+
+    <div class="toc">
+        <h3>📋 Table of Contents</h3>
+        <ul>
+            <li><a href="#unified">1. Unified System Architecture</a></li>
+            <li><a href="#edge-generic">2. Edge Station - Generic</a></li>
+            <li><a href="#stamping">3. Stamping Station</a></li>
+            <li><a href="#bodyshop">4. Body Shop Station</a></li>
+            <li><a href="#paintshop">5. Paint Shop Station</a></li>
+            <li><a href="#assembly">6. Assembly Station</a></li>
+            <li><a href="#qc">7. Quality Control Station</a></li>
+            <li><a href="#central-hub">8. Central Hub Architecture</a></li>
+            <li><a href="#correlation">9. Correlation Engine</a></li>
+            <li><a href="#predictive">10. Predictive Maintenance</a></li>
+            <li><a href="#optimization">11. Process Optimization</a></li>
+            <li><a href="#dataflow">12. End-to-End Data Flow</a></li>
+            <li><a href="#deployment">13. Deployment Architecture</a></li>
+            <li><a href="#security">14. Security Architecture</a></li>
+        </ul>
+    </div>
+
+    <h2 id="unified">1. Unified System Architecture</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph FACTORY["🏭 Mercedes-Benz Production Facility"]
+        
+        subgraph EDGE["Edge Intelligence Layer"]
+            direction LR
+            S1["⚙️ Stamping"]
+            S2["🔩 Body Shop"]
+            S3["🎨 Paint Shop"]
+            S4["🔧 Assembly"]
+            S5["✅ Quality Control"]
+        end
+        
+        subgraph NETWORK["🌐 Industrial Network"]
+            KAFKA[["Apache Kafka"]]
+            MQTT[["MQTT"]]
+            OPCUA[["OPC-UA"]]
+        end
+        
+        subgraph CENTRAL["🧠 Central Intelligence Hub"]
+            INGEST["📥 Data Ingestion"]
+            STORE[("💾 Data Platform")]
+            AI{{"🤖 AI/ML Core"}}
+            DASH["📊 Dashboard"]
+        end
+    end
+    
+    S1 --> KAFKA
+    S2 --> KAFKA
+    S3 --> KAFKA
+    S4 --> KAFKA
+    S5 --> KAFKA
+    
+    KAFKA <--> MQTT <--> OPCUA
+    KAFKA --> INGEST --> STORE --> AI --> DASH
+
+    style EDGE fill:#FFF9C4,stroke:#F9A825,stroke-width:3px
+    style NETWORK fill:#FFECB3,stroke:#FF8F00,stroke-width:3px
+    style CENTRAL fill:#FFF8E1,stroke:#E65100,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="edge-generic">2. Edge Station - Generic Internal Architecture</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph EDGE_MODULE["🔧 Edge AI Module"]
+        
+        subgraph SENSORS["Sensor Layer"]
+            CAM["📷 Camera"]
+            THERMAL["🌡️ Thermal"]
+            VIB["📳 Vibration"]
+            PRESS["⏲️ Pressure"]
+        end
+        
+        subgraph PROCESSING["Processing Layer"]
+            ACQ["📥 Acquisition"]
+            PREP["🔄 Preprocessing"]
+            AI{{"🤖 AI Inference"}}
+            FUSE["🔀 Sensor Fusion"]
+        end
+        
+        subgraph OUTPUT["Output Layer"]
+            SCORE["📊 Quality Score"]
+            ALERT["🚨 Alert"]
+            ACT["🎮 Actuator"]
+        end
+        
+        subgraph STORAGE["Storage"]
+            CACHE[("💾 Cache")]
+            MODEL[("🗄️ Models")]
+        end
+    end
+    
+    CAM --> ACQ
+    THERMAL --> ACQ
+    VIB --> ACQ
+    PRESS --> ACQ
+    
+    ACQ --> PREP --> AI --> FUSE
+    MODEL -.-> AI
+    
+    FUSE --> SCORE --> CACHE
+    FUSE --> ALERT
+    FUSE --> ACT
+    
+    ALERT --> OPERATOR["👷 Operator"]
+    ACT --> MACHINE["⚙️ Machine"]
+    SCORE --> HUB["☁️ Central Hub"]
+
+    style SENSORS fill:#E8F5E9,stroke:#43A047,stroke-width:2px
+    style PROCESSING fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+    style OUTPUT fill:#FFEBEE,stroke:#E53935,stroke-width:2px
+    style STORAGE fill:#FFF3E0,stroke:#FB8C00,stroke-width:2px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="stamping">3. Stamping Station</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart LR
+    subgraph STAMPING["⚙️ Stamping Station"]
+        
+        subgraph IN["Inputs"]
+            FORCE["⏲️ Press Force"]
+            STROKE["📏 Stroke"]
+            DIE_CAM["📷 Die Camera"]
+            ACOUSTIC["🔊 Acoustic"]
+        end
+        
+        subgraph DETECT["Detections"]
+            CRACK["🔍 Crack"]
+            WRINKLE["🔍 Wrinkle"]
+            THIN["🔍 Thinning"]
+            WEAR["🔍 Die Wear"]
+        end
+        
+        subgraph OUT["Outputs"]
+            SCORE["✅ Quality Score"]
+            TOOL_ALERT["⚠️ Tool Alert"]
+            PARAMS["📋 Parameters"]
+        end
+    end
+    
+    IN --> DETECT --> OUT
+
+    style STAMPING fill:#E3F2FD,stroke:#1976D2,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="bodyshop">4. Body Shop Station</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart LR
+    subgraph BODYSHOP["🔩 Body Shop Station"]
+        
+        subgraph IN["Inputs"]
+            WELD_CAM["📷 Weld Camera"]
+            CURRENT["⚡ Current"]
+            ROBOT["🤖 Robot Position"]
+            THERMAL["🌡️ Thermal"]
+        end
+        
+        subgraph DETECT["Detections"]
+            WELD_Q["🔍 Weld Quality"]
+            SPATTER["🔍 Spatter"]
+            GAP["🔍 Gap"]
+            ELECTRODE["🔍 Electrode Wear"]
+        end
+        
+        subgraph OUT["Outputs"]
+            JOINT["✅ Joint Score"]
+            PATH["🤖 Path Correction"]
+            MAINT["🔧 Maintenance"]
+        end
+    end
+    
+    IN --> DETECT --> OUT
+
+    style BODYSHOP fill:#EFEBE9,stroke:#6D4C41,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="paintshop">5. Paint Shop Station</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart LR
+    subgraph PAINTSHOP["🎨 Paint Shop Station"]
+        
+        subgraph IN["Inputs"]
+            SPRAY["📷 Spray Camera"]
+            THICK["📏 Thickness"]
+            COLOR["🎨 Colorimeter"]
+            ENV["🌡️ Environment"]
+        end
+        
+        subgraph DETECT["Detections"]
+            ORANGE["🔍 Orange Peel"]
+            RUNS["🔍 Runs/Sags"]
+            DUST["🔍 Dust"]
+            MATCH["🔍 Color Match"]
+        end
+        
+        subgraph OUT["Outputs"]
+            FINISH["✅ Finish Score"]
+            SPRAY_OPT["💨 Spray Params"]
+            BOOTH["🌡️ Booth Adjust"]
+        end
+    end
+    
+    IN --> DETECT --> OUT
+
+    style PAINTSHOP fill:#F3E5F5,stroke:#7B1FA2,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="assembly">6. Assembly Station</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart LR
+    subgraph ASSEMBLY["🔧 Assembly Station"]
+        
+        subgraph IN["Inputs"]
+            TORQUE["🔩 Torque"]
+            VISION["📷 Vision"]
+            BARCODE["📱 Barcode/RFID"]
+            AUDIO["🔊 Audio"]
+        end
+        
+        subgraph DETECT["Detections"]
+            TORQUE_V["✔️ Torque Verify"]
+            PART["✔️ Part Presence"]
+            SEQ["✔️ Sequence"]
+            FIT["✔️ Fit Check"]
+        end
+        
+        subgraph OUT["Outputs"]
+            BUILD["✅ Build Score"]
+            ERROR["⚠️ Error-Proof"]
+            CYCLE["⏱️ Cycle Opt"]
+        end
+    end
+    
+    IN --> DETECT --> OUT
+
+    style ASSEMBLY fill:#E8F5E9,stroke:#388E3C,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="qc">7. Quality Control Station</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart LR
+    subgraph QC["✅ Quality Control Station"]
+        
+        subgraph IN["Inputs"]
+            MULTI_CAM["📷 Multi-Angle Cameras"]
+            CMM["📐 CMM"]
+            FUNC["🔧 Functional Tests"]
+            LEAK["💧 Leak Test"]
+        end
+        
+        subgraph DETECT["Detections"]
+            DIM["✔️ Dimensional"]
+            COSMETIC["✔️ Cosmetic"]
+            FUNC_V["✔️ Functional"]
+            TRACE["🔗 Traceability"]
+        end
+        
+        subgraph OUT["Outputs"]
+            CERT["🏆 Certification"]
+            REWORK["🔧 Rework Rec"]
+            FEEDBACK["📤 Upstream FB"]
+        end
+    end
+    
+    IN --> DETECT --> OUT
+
+    style QC fill:#FFEBEE,stroke:#C62828,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="central-hub">8. Central Hub - Complete Architecture</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph HUB["🧠 Central Intelligence Hub"]
+        
+        subgraph INGEST["📥 Ingestion"]
+            KAFKA[["Kafka"]]
+            FLINK["Flink"]
+            VALID["Validator"]
+        end
+        
+        subgraph DATA["💾 Data Platform"]
+            TSDB[("Time-Series")]
+            LAKE[("Data Lake")]
+            GRAPH[("Graph DB")]
+            CACHE[("Cache")]
+        end
+        
+        subgraph AI["🤖 AI/ML"]
+            CORR{{"Correlation"}}
+            PRED{{"Prediction"}}
+            OPT{{"Optimization"}}
+            ANOM{{"Anomaly"}}
+        end
+        
+        subgraph SVC["🔌 Services"]
+            API["API Gateway"]
+            NOTIFY["Notifications"]
+            REPORT["Reporting"]
+        end
+        
+        subgraph UI["📊 Presentation"]
+            EXEC["Executive Dash"]
+            ENG["Engineering"]
+            MOBILE["Mobile"]
+        end
+    end
+    
+    KAFKA --> FLINK --> VALID
+    VALID --> TSDB & LAKE
+    TSDB --> AI
+    LAKE --> AI
+    AI --> GRAPH
+    AI --> SVC
+    SVC --> UI
+
+    style INGEST fill:#E8EAF6,stroke:#3949AB,stroke-width:2px
+    style DATA fill:#E0F2F1,stroke:#00897B,stroke-width:2px
+    style AI fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+    style SVC fill:#FBE9E7,stroke:#E64A19,stroke-width:2px
+    style UI fill:#E8F5E9,stroke:#43A047,stroke-width:2px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="correlation">9. Correlation Engine - Deep Dive</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph CORR["🔗 Correlation Engine"]
+        
+        subgraph EVENTS["Event Streams"]
+            E1["📦 Stamping"]
+            E2["📦 Body Shop"]
+            E3["📦 Paint"]
+            E4["📦 Assembly"]
+            E5["📦 QC"]
+        end
+        
+        subgraph TRACK["Tracking"]
+            VIN[("VIN Registry")]
+            TIME[("Timestamps")]
+            GEN[("Genealogy")]
+        end
+        
+        subgraph ANALYSIS["Analysis"]
+            TEMPORAL["⏱️ Temporal"]
+            SPATIAL["📍 Spatial"]
+            CAUSAL["🔬 Causal"]
+        end
+        
+        subgraph DISCOVERY["Discovery"]
+            ASSOC["📊 Association"]
+            SEQ["📈 Sequential"]
+            CLUSTER["🎯 Clustering"]
+        end
+        
+        subgraph OUTPUT["Output"]
+            ROOT["🎯 Root Cause"]
+            IMPACT["🗺️ Impact Map"]
+            RULES[("Rules DB")]
+        end
+    end
+    
+    EVENTS --> VIN --> TIME --> GEN
+    GEN --> ANALYSIS --> DISCOVERY --> OUTPUT
+
+    style CORR fill:#ECEFF1,stroke:#546E7A,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="predictive">10. Predictive Maintenance Engine</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph PRED["🔮 Predictive Maintenance"]
+        
+        subgraph DATA["Data Sources"]
+            TEL["📡 Telemetry"]
+            HIST[("📋 History")]
+            FAIL[("❌ Failures")]
+        end
+        
+        subgraph FEATURE["Features"]
+            ROLL["📈 Rolling Stats"]
+            FFT["🌊 FFT"]
+            HEALTH["💚 Health Index"]
+        end
+        
+        subgraph MODELS["Models"]
+            WEIBULL["📊 Weibull"]
+            LSTM["🧠 LSTM"]
+            XGB["🌲 XGBoost"]
+            ENS["🎯 Ensemble"]
+        end
+        
+        subgraph ACTION["Actions"]
+            SCHED["📅 Schedule"]
+            SPARE["📦 Spare Parts"]
+            PRIORITY["🎯 Priority"]
+        end
+    end
+    
+    DATA --> FEATURE --> MODELS --> ACTION
+
+    style PRED fill:#EDE7F6,stroke:#5E35B1,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="optimization">11. Process Optimization Engine</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph OPT["⚡ Process Optimization"]
+        
+        subgraph INPUT["Inputs"]
+            PARAMS["⚙️ Parameters"]
+            QUALITY["📊 Quality"]
+            CYCLE["⏱️ Cycle Time"]
+        end
+        
+        subgraph MODEL["Modeling"]
+            PHYSICS["🔬 Physics"]
+            ML["📊 ML Surrogate"]
+            HYBRID["🔀 Hybrid"]
+        end
+        
+        subgraph ALGO["Algorithms"]
+            BAYES["🎲 Bayesian"]
+            GENETIC["🧬 Genetic"]
+            RL["🤖 RL"]
+        end
+        
+        subgraph SIM["Simulation"]
+            WHATIF["❓ What-If"]
+            AB["🔬 A/B Test"]
+            ROLL["📈 Rollout"]
+        end
+        
+        subgraph OUT["Output"]
+            REC["⚙️ Recommendations"]
+            ROI["💰 ROI"]
+            PLAN["📋 Plan"]
+        end
+    end
+    
+    INPUT --> MODEL --> ALGO --> SIM --> OUT
+
+    style OPT fill:#E8EAF6,stroke:#3949AB,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="dataflow">12. End-to-End Data Flow</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+sequenceDiagram
+    participant S as 📡 Sensor
+    participant E as 🔧 Edge AI
+    participant K as 📨 Kafka
+    participant F as ⚡ Flink
+    participant D as 💾 Store
+    participant A as 🧠 AI
+    participant N as 🚨 Alert
+    participant U as 👷 User
+
+    S->>E: Raw Data (1ms)
+    E->>E: Local Inference
+    
+    alt Local Anomaly
+        E->>U: ⚠️ Immediate Alert
+    end
+    
+    E->>K: Publish Event
+    K->>F: Stream
+    F->>D: Persist
+    
+    loop Every 5s
+        A->>D: Query
+        A->>A: Correlate
+        alt Holistic Anomaly
+            A->>N: Alert
+            N->>U: 📱 Notify
+        end
+    end
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="deployment">13. Deployment Architecture</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph DEPLOY["🏗️ Deployment"]
+        
+        subgraph FLOOR["🏭 Factory Floor"]
+            E1["🖥️ Edge 1"]
+            E2["🖥️ Edge 2"]
+            E3["🖥️ Edge 3"]
+            E4["🖥️ Edge 4"]
+            E5["🖥️ Edge 5"]
+            SW["🔀 Switch"]
+        end
+        
+        subgraph DC["🏢 Data Center"]
+            K8S["☸️ Kubernetes"]
+            GPU["🧠 GPU Nodes"]
+            SAN[("📀 SAN")]
+            LB["⚖️ Load Balancer"]
+        end
+        
+        subgraph CLOUD["☁️ Cloud"]
+            ARCHIVE["🗄️ Archive"]
+            DR["🔄 DR"]
+            TRAIN["🎓 Training"]
+        end
+    end
+    
+    E1 & E2 & E3 & E4 & E5 --> SW --> LB --> K8S
+    K8S --> GPU
+    K8S --> SAN
+    SAN -.-> ARCHIVE
+    K8S -.-> DR
+    GPU -.-> TRAIN
+
+    style FLOOR fill:#ECEFF1,stroke:#607D8B,stroke-width:3px
+    style DC fill:#E8EAF6,stroke:#3949AB,stroke-width:3px
+    style CLOUD fill:#E0F2F1,stroke:#00897B,stroke-width:3px
+        </pre>
+    </div>
+
+    <hr>
+
+    <h2 id="security">14. Security Architecture</h2>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph SEC["🔒 Security"]
+        
+        subgraph PERIMETER["🛡️ Perimeter"]
+            FW["🔥 Firewall"]
+            IDS["👁️ IDS"]
+            DMZ["🌐 DMZ"]
+        end
+        
+        subgraph NET["🌐 Network"]
+            VLAN["📡 VLAN"]
+            TLS["🔐 TLS 1.3"]
+            MTLS["🤝 mTLS"]
+        end
+        
+        subgraph IDENTITY["👤 Identity"]
+            IAM["🎫 IAM"]
+            MFA["📱 MFA"]
+            RBAC["👥 RBAC"]
+        end
+        
+        subgraph DATA_SEC["💾 Data"]
+            ENC["🔐 Encryption"]
+            MASK["🎭 Masking"]
+            DLP["🚫 DLP"]
+        end
+        
+        subgraph EDGE_SEC["🔧 Edge"]
+            BOOT["🔐 Secure Boot"]
+            HSM["🔑 HSM"]
+            OTA["📥 Secure OTA"]
+        end
+    end
+    
+    PERIMETER --> NET --> IDENTITY
+    IDENTITY --> DATA_SEC & EDGE_SEC
+
+    style SEC fill:#FFEBEE,stroke:#C62828,stroke-width:3px
+        </pre>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#FFF9C4',
+                primaryTextColor: '#333',
+                primaryBorderColor: '#F9A825',
+                lineColor: '#E65100',
+                secondaryColor: '#FFECB3',
+                tertiaryColor: '#FFF8E1',
+                background: '#FFFDE7',
+                mainBkg: '#FFF9C4',
+                nodeBorder: '#F9A825',
+                clusterBkg: '#FFF8E1',
+                clusterBorder: '#F9A825',
+                defaultLinkColor: '#E65100',
+                titleColor: '#333333',
+                edgeLabelBackground: '#FFFDE7',
+                nodeTextColor: '#333333',
+                actorLineColor: '#E65100',
+                signalColor: '#333333'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                actorMargin: 80
+            }
+        });
+    </script>
+</body>
+
+</html>

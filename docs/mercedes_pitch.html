@@ -246,7 +246,7 @@
     <div class="diagram-container">
         <pre class="mermaid">
 flowchart TB
-    subgraph INGEST["📥 Data Ingestion and Preprocessing Layer"]
+    subgraph INGEST["📥 Data Ingestion and Preprocessing Layer"]<br>
         direction LR
         <!-- DI1["Stamping<br/>Sensors + PLCs"] -->
         DI1["Body Shop<br/>Robots + Weld Quality Sensors"]
@@ -276,14 +276,12 @@ flowchart TB
     DI2 --> S2
     DI3 --> S3
     DI4 --> S4
-    DI5 --> S5
 
     S1 -->|Real-time Telemetry| AGG
     S2 -->|Real-time Telemetry| AGG
     S3 -->|Real-time Telemetry| AGG
     S4 -->|Real-time Telemetry| AGG
-    S5 -->|Real-time Telemetry| AGG
-
+            
     AGG --> PRED
     AGG --> OPT
     PRED --> DASH

@@ -246,9 +246,8 @@
     <div class="diagram-container">
         <pre class="mermaid">
 flowchart TB
-    subgraph INGEST["📥 Data Ingestion and Preprocessing Layer"]<br>
+    subgraph INGEST["📥 Data Ingestion and Preprocessing Layer"]
         direction LR
-        <!-- DI1["Stamping<br/>Sensors + PLCs"] -->
         DI1["Body Shop<br/>Robots + Weld Quality Sensors"]
         DI2["Paint Shop<br/>Environmental + Vision Systems"]
         DI3["Assembly<br/>Torque Tools + Manual Inspection"]
@@ -257,7 +256,6 @@ flowchart TB
 
     subgraph EDGE["🔧 Edge Intelligence Layer"]
         direction LR
-        <!-- S1["⚙️ Stamping<br/>AI Module"] -->
         S1["🔩 Body Shop<br/>AI Module"]
         S2["🎨 Paint Shop<br/>AI Module"]
         S3["🔧 Assembly<br/>AI Module"]

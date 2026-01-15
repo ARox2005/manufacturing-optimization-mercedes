@@ -241,7 +241,7 @@
     </div>
 
     <!-- Slide 5: The Architecture -->
-    <div class="slide">
+    <!-- <div class="slide">
         <h1>The Architecture</h1>
         <div class="diagram-container">
             <pre class="mermaid">
@@ -279,7 +279,65 @@ flowchart TB
             </pre>
         </div>
         <div class="slide-number">5</div>
+    </div> -->
+
+    <!-- Slide 5: The Architecture -->
+<div class="slide">
+    <h1>The Architecture</h1>
+    <div class="diagram-container">
+        <pre class="mermaid">
+flowchart TB
+    subgraph INGEST["📥 Data Ingestion Layer"]
+        direction LR
+        DI1["Stamping<br/>Sensors + PLCs"]
+        DI2["Body Shop<br/>Robots + Weld Quality Sensors"]
+        DI3["Paint Shop<br/>Environmental + Vision Systems"]
+        DI4["Assembly<br/>Torque Tools + Manual Inspection"]
+        DI5["Quality Check<br/>Cameras + Test Benches"]
+    end
+
+    subgraph EDGE["🔧 Edge Intelligence Layer"]
+        direction LR
+        S1["⚙️ Stamping<br/>AI Module"]
+        S2["🔩 Body Shop<br/>AI Module"]
+        S3["🎨 Paint Shop<br/>AI Module"]
+        S4["🔧 Assembly<br/>AI Module"]
+        S5["✅ Quality Check<br/>AI Module"]
+    end
+
+    subgraph CENTRAL["🧠 Central Intelligence Hub"]
+        direction TB
+        AGG["Data Aggregation<br/>& Correlation Engine"]
+        PRED["Predictive<br/>Maintenance AI"]
+        OPT["Process<br/>Optimization Engine"]
+        DASH["Executive<br/>Dashboard"]
+    end
+
+    DI1 --> S1
+    DI2 --> S2
+    DI3 --> S3
+    DI4 --> S4
+    DI5 --> S5
+
+    S1 -->|Real-time Telemetry| AGG
+    S2 -->|Real-time Telemetry| AGG
+    S3 -->|Real-time Telemetry| AGG
+    S4 -->|Real-time Telemetry| AGG
+    S5 -->|Real-time Telemetry| AGG
+
+    AGG --> PRED
+    AGG --> OPT
+    PRED --> DASH
+    OPT --> DASH
+
+    style INGEST fill:#E3F2FD,stroke:#039BE5,stroke-width:2px
+    style EDGE fill:#FFF9C4,stroke:#F9A825,stroke-width:2px
+    style CENTRAL fill:#FFECB3,stroke:#E65100,stroke-width:2px
+        </pre>
     </div>
+    <div class="slide-number">5</div>
+</div>
+
 
     <!-- Slide 6: Deep Dive Edge -->
     <div class="slide">

@@ -248,20 +248,20 @@
 flowchart TB
     subgraph INGEST["📥 Data Ingestion and Preprocessing Layer"]
         direction LR
-        DI1["Stamping<br/>Sensors + PLCs"]
-        DI2["Body Shop<br/>Robots + Weld Quality Sensors"]
-        DI3["Paint Shop<br/>Environmental + Vision Systems"]
-        DI4["Assembly<br/>Torque Tools + Manual Inspection"]
-        DI5["Quality Check<br/>Cameras + Test Benches"]
+        <!-- DI1["Stamping<br/>Sensors + PLCs"] -->
+        DI1["Body Shop<br/>Robots + Weld Quality Sensors"]
+        DI2["Paint Shop<br/>Environmental + Vision Systems"]
+        DI3["Assembly<br/>Torque Tools + Manual Inspection"]
+        DI4["Quality Check<br/>Cameras + Test Benches"]
     end
 
     subgraph EDGE["🔧 Edge Intelligence Layer"]
         direction LR
-        S1["⚙️ Stamping<br/>AI Module"]
-        S2["🔩 Body Shop<br/>AI Module"]
-        S3["🎨 Paint Shop<br/>AI Module"]
-        S4["🔧 Assembly<br/>AI Module"]
-        S5["✅ Quality Check<br/>AI Module"]
+        <!-- S1["⚙️ Stamping<br/>AI Module"] -->
+        S1["🔩 Body Shop<br/>AI Module"]
+        S2["🎨 Paint Shop<br/>AI Module"]
+        S3["🔧 Assembly<br/>AI Module"]
+        S4["✅ Quality Check<br/>AI Module"]
     end
 
     subgraph CENTRAL["🧠 Central Intelligence Hub"]
